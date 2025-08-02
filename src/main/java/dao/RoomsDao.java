@@ -69,15 +69,25 @@ public class RoomsDao {
 	
 	
 	
-	public void delete(int id) throws SQLException {
+	public int delete(int id) throws SQLException {
 		Connection con = DBConnection.getConnection();
 		String query = "delete from rooms where r_id = ?";
 		PreparedStatement pstmt = con.prepareStatement(query);
 		pstmt.setInt(1, id);
-		pstmt.executeUpdate();
+		int isDelete = pstmt.executeUpdate();
+		return isDelete;
 	}
 	
-	
+	public int update(Room r) throws SQLException {
+		Connection con = DBConnection.getConnection();
+		String query = "update rooms set r_type = ?, r_price = ? where r_id = ?";
+		PreparedStatement pstmt = con.prepareStatement(query);
+		pstmt.setString(1, r.getR_type());
+		pstmt.setInt(2, r.getR_price());
+		pstmt.setInt(3, r.getR_id());
+		int update = pstmt.executeUpdate();
+		return update;
+	}
 	
 	public String searchRoomTypeByBookingId(int id) throws SQLException {
 		Connection con = DBConnection.getConnection();
