@@ -1,12 +1,5 @@
 package controller;
 
-import jakarta.servlet.RequestDispatcher;
-import jakarta.servlet.ServletConfig;
-import jakarta.servlet.ServletException;
-import jakarta.servlet.annotation.WebServlet;
-import jakarta.servlet.http.HttpServlet;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
@@ -15,6 +8,15 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import connect.DBConnection;
+import jakarta.servlet.RequestDispatcher;
+import jakarta.servlet.Servlet;
+import jakarta.servlet.ServletConfig;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
 /**
  * Servlet implementation class LoginServlet
@@ -68,8 +70,11 @@ public class LoginServlet extends HttpServlet {
 			pstmt.setString(1, uname);
 			pstmt.setString(2, password);
 			ResultSet rs = pstmt.executeQuery();
-			if(rs.next())
+			HttpSession hs = request.getSession();
+			if(rs.next()) {
+				hs.setAttribute("username", uname);
 				response.sendRedirect("home.html");
+			}
 			else {
 				RequestDispatcher rs1 = request.getRequestDispatcher("index.html");
 				rs1.include(request, response);

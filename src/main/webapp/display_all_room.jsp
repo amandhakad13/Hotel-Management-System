@@ -67,9 +67,8 @@
     <nav>
       <ul>
         <li><a href="home.html">Home</a></li>
-        <li><a href="index.html">Login</a></li>
-        <li><a href="#">Register</a></li>
-        <li><a href="#">Logout</a></li>
+        <li><a href="admin_register.jsp">Register</a></li>
+        <li><a href="logout">Logout</a></li>
       </ul>
     </nav>
   </header>
