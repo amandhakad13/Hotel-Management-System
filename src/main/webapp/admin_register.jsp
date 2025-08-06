@@ -1,11 +1,19 @@
 <!DOCTYPE html>
 <%@page import="dao.AdminDao"%>
 <html lang="en">
+
+<%
+	String admin = (String) session.getAttribute("username");
+	if(admin==null) {
+		response.sendRedirect("index.html");
+	}
+%>
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Register Page</title>
-  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/register.css" />
 </head>
 <body>
 

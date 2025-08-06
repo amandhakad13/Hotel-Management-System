@@ -1,10 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
+<%
+	String admin = (String) session.getAttribute("username");
+	if(admin==null) {
+		response.sendRedirect("index.html");
+	}
+%>
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Room Insert Page</title>
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/insert.css">
 </head>
 <body>
 
@@ -12,7 +20,7 @@
     <div class="logo">Hotel App</div>
     <nav>
       <ul>
-        <li><a href="home.html">Home</a></li>
+        <li><a href="home.jsp">Home</a></li>
         <li><a href="admin_register.jsp">Register</a></li>
         <li><a href="logout">Logout</a></li>
       </ul>

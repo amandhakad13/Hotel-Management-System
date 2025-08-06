@@ -73,7 +73,7 @@ public class LoginServlet extends HttpServlet {
 			HttpSession hs = request.getSession();
 			if(rs.next()) {
 				hs.setAttribute("username", uname);
-				response.sendRedirect("home.html");
+				response.sendRedirect("home.jsp");
 			}
 			else {
 				RequestDispatcher rs1 = request.getRequestDispatcher("index.html");

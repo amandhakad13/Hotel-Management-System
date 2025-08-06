@@ -1,7 +1,6 @@
 package controller;
 
 import jakarta.servlet.RequestDispatcher;
-import jakarta.servlet.ServletConfig;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -14,7 +13,6 @@ import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.SQLException;
 
-import connect.DBConnection;
 import dao.RoomsDao;
 
 /**
@@ -32,27 +30,6 @@ public class InsertServlet extends HttpServlet {
         super();
         // TODO Auto-generated constructor stub
     }
-
-	/**
-	 * @see Servlet#init(ServletConfig)
-	 */
-	public void init(ServletConfig config) throws ServletException {
-		// TODO Auto-generated method stub
-		con = DBConnection.getConnection();
-	}
-
-	/**
-	 * @see Servlet#destroy()
-	 */
-	public void destroy() {
-		// TODO Auto-generated method stub
-		try {
-			con.close();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
@@ -78,7 +55,7 @@ public class InsertServlet extends HttpServlet {
 		try {
 			int isInsert = rdao.insert(r);
 			if(isInsert>0) {
-				RequestDispatcher rs = request.getRequestDispatcher("insert.html");
+				RequestDispatcher rs = request.getRequestDispatcher("insert.jsp");
 				rs.include(request, response);
 				out.println("<center><h2>Record Inserted Successfully</center></h1>");
 			}
