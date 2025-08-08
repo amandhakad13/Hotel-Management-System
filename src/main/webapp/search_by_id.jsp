@@ -24,6 +24,7 @@
         <li><a href="home.jsp">Home</a></li>
         <li><a href="admin_register.jsp">Register</a></li>
         <li><a href="logout">Logout</a></li>
+        <li class="uname"><%= admin %></li>
       </ul>
     </nav>
   </header>
@@ -66,7 +67,16 @@
   				</tr>
   				<tr>
   					<th>Room Status</th>
-  					<td><%= r.getR_status() %></td>
+  					<td><% 
+	
+  					if(r.getR_status()==0) {
+  						out.println("Not Available");
+  					}
+  					else {
+  						out.println("Available");
+  					}	
+  					
+  					%></td>
   				</tr>
   			</table>
   			

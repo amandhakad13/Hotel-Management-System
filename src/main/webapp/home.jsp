@@ -24,6 +24,7 @@
                 <li><a href="home.jsp" class="active">Home</a></li>
                 <li><a href="admin_register.jsp">Register</a></li>
                 <li><a href="logout">Logout</a></li>
+                <li class="uname"><%= admin %></li>
             </ul>
         </nav>
     </header>
@@ -38,6 +39,7 @@
             <a href="display_all_room.jsp" class="btn">Display All</a>
             <a href="update_room_by_id.jsp" class="btn">Update</a>
             <a href="delete_room_by_id.jsp" class="btn">Delete</a>
+            <a href="book_room.jsp" class="btn">Book Room</a>
         </div>
     </section>
 </body>

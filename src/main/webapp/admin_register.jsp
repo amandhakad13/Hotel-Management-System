@@ -45,6 +45,7 @@
     			int i = adao.insert(uname, password);
     			if(i>0) {
     				out.println("<center><h3>Record Inserted Successfully</center></h3>");
+    				response.sendRedirect("index.html");
     			}
     			else {
     				out.println("<center><h3>Record Not Inserted</center></h3>");

@@ -25,6 +25,7 @@
         <li><a href="home.jsp">Home</a></li>
         <li><a href="admin_register.jsp">Register</a></li>
         <li><a href="logout">Logout</a></li>
+        <li class="uname"><%= admin %></li>
       </ul>
     </nav>
   </header>

@@ -1,4 +1,8 @@
 <!DOCTYPE html>
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.PreparedStatement"%>
+<%@page import="java.sql.Connection"%>
+<%@page import="connect.DBConnection"%>
 <%@page import="dao.RoomsDao"%>
 <%@page import="model.Room" %>
 <%@page import="java.util.List" %>
@@ -20,12 +24,13 @@
 <body>
 
   <header>
-    <div class="logo">Hotel App</div>
+    <div class="logo">Hotel</div>
     <nav>
       <ul>
         <li><a href="home.jsp">Home</a></li>
         <li><a href="admin_register.jsp">Register</a></li>
         <li><a href="logout">Logout</a></li>
+        <li class="uname"><%= admin %></li>
       </ul>
     </nav>
   </header>
@@ -52,6 +57,7 @@
   				<th>Room Status</th>
   			</tr>	
   			<%
+  			
   			for(Room l: ls) {
   				%>
   				<tr>
@@ -61,12 +67,10 @@
   					<td><%
   					
   					if(l.getR_status()==0) {
-  						out.println("Booked");
+  						out.println("Not Available");
   					}
   					else {
-  						%>
-  						<a href="book_room.jsp?rid=<%= l.getR_id() %>"><button class="btn">Book</button></a>
-  						<%
+  						out.println("Available");
   					}
   						
   					%></td>

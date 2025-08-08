@@ -1,7 +1,6 @@
 package controller;
 
 import jakarta.servlet.RequestDispatcher;
-import jakarta.servlet.ServletConfig;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -46,7 +45,7 @@ public class DeleteRoomServlet extends HttpServlet {
 			if(delete>0) {
 				RequestDispatcher rs = request.getRequestDispatcher("delete_room_by_id.jsp");
 				rs.include(request, response);
-				pw.println("<center><h3>Record Deleted</h3></center>");
+				pw.println("<center><h3 style='color:white'>Record Deleted</h3></center>");
 			}
 			else {
 				pw.println("<center><h3>Record Not Deleted</h3></center>");

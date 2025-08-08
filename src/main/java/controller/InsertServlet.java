@@ -57,7 +57,7 @@ public class InsertServlet extends HttpServlet {
 			if(isInsert>0) {
 				RequestDispatcher rs = request.getRequestDispatcher("insert.jsp");
 				rs.include(request, response);
-				out.println("<center><h2>Record Inserted Successfully</center></h1>");
+				out.println("<center><h2 style='color:white'>Record Inserted Successfully</center></h1>");
 			}
 			else {
 				out.println("<center><h2>Record Not Inserted</center></h2>");

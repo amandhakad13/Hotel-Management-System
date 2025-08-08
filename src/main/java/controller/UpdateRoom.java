@@ -1,7 +1,6 @@
 package controller;
 
 import jakarta.servlet.RequestDispatcher;
-import jakarta.servlet.ServletConfig;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -54,7 +53,7 @@ public class UpdateRoom extends HttpServlet {
 			if(delete>0) {
 				RequestDispatcher rs = request.getRequestDispatcher("update_room_by_id.jsp");
 				rs.include(request, response);
-				pw.println("<center><h3>Record Updated</h3></center>");
+				pw.println("<center><h3 style='color:white'>Record Updated</h3></center>");
 			}
 			else {
 				pw.println("<center><h3>Record Not Updated</h3></center>");
